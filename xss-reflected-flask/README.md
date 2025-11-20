@@ -26,6 +26,6 @@ Fixed: http://localhost:5000/search-fixed?q=%3Cscript%3Ealert('XSS!')%3C%2Fscrip
 <details>
   <summary>Click to expand screenshot</summary>
 
-  <img src="assets/ui-preview.png" alt="UI screenshot" width="800">
+  <img src="assets/ui-preview.png" alt="UI screenshot" width="400">
 
 </details>
