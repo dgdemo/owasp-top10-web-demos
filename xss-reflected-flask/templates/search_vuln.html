@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vulnerable Search</title>
+  </head>
+  <body>
+    <h1>Vulnerable Search</h1>
+    <p>
+      You searched for:
+      <!-- DANGEROUS: explicitly marking user input as safe -->
+      <strong>{{ query | safe }}</strong>
+    </p>
+
+    <p>
+      This page uses <code>|safe</code> on user-controlled input.
+      If you searched for <code>&lt;script&gt;alert('XSS!')&lt;/script&gt;</code>,
+      the script will execute.
+    </p>
+
+    <p><a href="/">Back</a></p>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask XSS Demo</title>
+  </head>
+  <body>
+    <h1>Flask XSS Demo</h1>
+    <p>This mini-app shows a reflected XSS vulnerability and its fix.</p>
+
+    <h2>Vulnerable search</h2>
+    <form action="/search-vuln" method="get">
+      <input type="text" name="q" placeholder="Search term">
+      <button type="submit">Search (vulnerable)</button>
+    </form>
+
+    <h2>Fixed search</h2>
+    <form action="/search-fixed" method="get">
+      <input type="text" name="q" placeholder="Search term">
+      <button type="submit">Search (fixed)</button>
+    </form>
+
+    <p>Try this as a payload:</p>
+    <pre>
+&lt;script&gt;alert('XSS!')&lt;/script&gt;
+    </pre>
+  </body>
+</html>

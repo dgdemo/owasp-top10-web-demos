@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fixed Search</title>
+  </head>
+  <body>
+    <h1>Fixed Search</h1>
+    <p>
+      You searched for:
+      <!-- SAFE: Jinja2 autoescaping is enabled by default -->
+      <strong>{{ query }}</strong>
+    </p>
+
+    <p>
+      Here we rely on the templating engine's autoescaping and never mark
+      user input with <code>|safe</code>. The same payload is rendered as text,
+      not executed as script.
+    </p>
+
+    <p><a href="/">Back</a></p>
+  </body>
+</html>
