@@ -6,8 +6,6 @@ Each vulnerability lives in its own folder with:
 - A vulnerable implementation
 - A fixed/secure version
 - A walkthrough-style README
-- Optional tests
-- Optional UI preview screenshots
 
 ## Current Demos
 
