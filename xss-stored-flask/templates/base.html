@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        body { font-family: sans-serif; margin: 2rem; }
+        nav { margin-bottom: 1.5rem; }
+        .mode-switch { font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <span class="mode-switch">
+            {% block mode_switch %}{% endblock %}
+        </span>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
