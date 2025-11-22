@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% if mode == "vuln" %}
+    <div class="note">
+      <strong>VULNERABLE VERSION:</strong>
+      This transfer could have been triggered by a malicious site via CSRF.
+    </div>
+  {% else %}
+    <div class="note">
+      <strong>FIXED VERSION:</strong>
+      This transfer required a valid anti-forgery (CSRF) token.
+    </div>
+  {% endif %}
+
+  <p>
+    Transfer complete for user <strong>{{ username }}</strong>.
+  </p>
+  <p>
+    Sent <strong>${{ amount }}</strong> to <strong>{{ to_account }}</strong>.
+  </p>
+  <p>
+    New balance: <strong>${{ balance }}</strong>.
+  </p>
+
+  <p><a href="/">Back to form</a></p>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="note">
+    <strong>FIXED VERSION:</strong>
+    This form includes a server-generated anti-forgery token.
+    The POST will be rejected if the token is missing or invalid.
+  </div>
+
+  <p>Logged in as: <strong>{{ username }}</strong></p>
+  <p>Current balance: <strong>${{ balance }}</strong></p>
+
+  <form method="post" action="/transfer">
+    <label>
+      <span>To account:</span>
+      <input type="text" name="to_account" value="attacker123" />
+    </label>
+    <label>
+      <span>Amount:</span>
+      <input type="number" name="amount" value="100" min="1" />
+    </label>
+
+    <!-- CSRF token added here -->
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+    <button type="submit">Transfer funds (CSRF-protected)</button>
+  </form>
+{% endblock %}

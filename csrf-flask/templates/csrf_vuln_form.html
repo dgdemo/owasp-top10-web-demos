@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="note">
+    <strong>VULNERABLE VERSION:</strong>
+    This form performs a state-changing POST using only a cookie-based "user"
+    and has <span class="danger">no CSRF protection</span>.
+  </div>
+
+  <p>Logged in as: <strong>{{ username }}</strong></p>
+  <p>Current balance: <strong>${{ balance }}</strong></p>
+
+  <form method="post" action="/transfer">
+    <label>
+      <span>To account:</span>
+      <input type="text" name="to_account" value="attacker123" />
+    </label>
+    <label>
+      <span>Amount:</span>
+      <input type="number" name="amount" value="100" min="1" />
+    </label>
+    <button type="submit">Transfer funds</button>
+  </form>
+{% endblock %}
