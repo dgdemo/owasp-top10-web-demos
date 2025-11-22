@@ -7,6 +7,10 @@ Each vulnerability lives in its own folder with:
 - A fixed/secure version
 - A walkthrough-style README
 
+## Important Note:
+### The OWASP Top 10 is primarily an awareness document and just a starting point for web application security:
+https://owasp.org/Top10/A00_2021_How_to_use_the_OWASP_Top_10_as_a_standard/
+
 ## Current Demos
 
 ### 1. Reflected XSS (Flask)
@@ -22,7 +26,6 @@ Shows how a simple template change (`|safe`) introduces reflected XSS, and how a
 ## Upcoming Demos
 
 - SQL Injection
-- CSRF
 - Template Injection
 - Insecure Direct Object Reference
 - Open Redirects
