@@ -42,6 +42,7 @@ because it does not include a valid CSRF token.
 <summary>
 Why CSRF Still Matters (Even in 2025/2026)
 </summary>
+
 Cross-Site Request Forgery (CSRF) is less visible today than it was a decade ago, but it remains a real-world issue, especially in applications that rely on cookie-based sessions or use server-rendered forms.
 
 Modern browser features like SameSite cookies reduced many classic CSRF attack paths, and SPA architectures often authenticate using Bearer tokens rather than automatic cookies. However, large portions of the web still rely on traditional session cookies, and many internal tools, admin panels, and enterprise applications continue to be vulnerable.
