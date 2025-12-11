@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Fixed Login</h1>
+<p>This version uses parameterized queries to prevent injection.</p>
+
+<form method="post">
+  <label>Username:
+    <input type="text" name="username">
+  </label>
+  <label>Password:
+    <input type="password" name="password">
+  </label>
+  <button type="submit">Log in (fixed)</button>
+</form>
+
+<h2>Prepared Statement</h2>
+<pre>{{ query }}</pre>
+{% if params %}
+<p>Parameters: <code>{{ params }}</code></p>
+{% endif %}
+{% endblock %}

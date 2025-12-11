@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>SQL Injection Demo (Flask + SQLite)</h1>
+<p>
+  Use <a href="{{ url_for('login_vuln') }}">Vulnerable Login</a> to demonstrate a classic SQL injection
+  and then compare with <a href="{{ url_for('login_fixed') }}">Fixed Login</a>.
+</p>
+
+<h2>Try this injection on the vulnerable form</h2>
+<ul>
+  <li><strong>Username:</strong> <code>admin</code></li>
+  <li><strong>Password:</strong> <code>' OR 1=1--</code></li>
+</ul>
+<p>The vulnerable form will build the SQL query using string concatenation, so the condition becomes
+<code>WHERE username = 'admin' AND password = '' OR 1=1--'</code>, which always evaluates to true.</p>
+{% endblock %}

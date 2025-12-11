@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ mode }} – Login Successful</h1>
+<p>Welcome, <strong>{{ user["username"] }}</strong>!</p>
+
+<h2>Executed Statement</h2>
+<pre>{{ query }}</pre>
+{% if params %}
+<p>Parameters: <code>{{ params }}</code></p>
+{% endif %}
+
+{% if users|length > 1 %}
+  <h2>Returned Rows</h2>
+  <ul>
+  {% for u in users %}
+    <li>{{ u["id"] }} – {{ u["username"] }}</li>
+  {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}

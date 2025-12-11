@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SQL Injection Demo – Flask</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; }
+    .nav a { margin-right: 1rem; }
+    .flash { padding: 0.5rem 1rem; background: #fee; border: 1px solid #f99; margin-bottom: 1rem; }
+    code, pre { background: #f5f5f5; padding: 0.2rem 0.4rem; }
+    label { display: block; margin-top: 0.5rem; }
+    input { padding: 0.25rem; width: 250px; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('login_vuln') }}">Vulnerable Login</a>
+    <a href="{{ url_for('login_fixed') }}">Fixed Login</a>
+  </div>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+</body>
+</html>
