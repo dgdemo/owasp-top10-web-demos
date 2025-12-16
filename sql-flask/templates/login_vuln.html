@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Vulnerable Login</h1>
+<p>This form is intentionally vulnerable to SQL injection.</p>
+
+<form method="post">
+  <label>Username:
+    <input type="text" name="username">
+  </label>
+  <label>Password:
+    <input type="text" name="password">
+  </label>
+  <button type="submit">Log in (vulnerable)</button>
+</form>
+
+{% if query %}
+  <h2>Executed SQL</h2>
+  <pre>{{ query }}</pre>
+{% endif %}
+
+<p>Example payload: <code>' OR 1=1--</code> as the password.</p>
+{% endblock %}

@@ -38,13 +38,6 @@ def init_db():
     db.commit()
 
 
-@app.before_first_request
-def setup():
-    # Recreate DB on each run to keep things predictable
-    if os.path.exists(DATABASE):
-        os.remove(DATABASE)
-    init_db()
-
 
 @app.teardown_appcontext
 def close_db(exception=None):
@@ -122,7 +115,14 @@ def login_fixed():
 
     return render_template("login_fixed.html", query=query, params=executed_params)
 
+def setup_app():
+    if os.path.exists(DATABASE):
+        os.remove(DATABASE)
+    with app.app_context():
+        init_db()
+
+
 
 if __name__ == "__main__":
-    # For demo only; you can also use `flask run`
+    setup_app()
     app.run(debug=True)
